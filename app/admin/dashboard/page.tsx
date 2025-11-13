@@ -14,8 +14,25 @@ export default function AdminDashboardPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    const session = localStorage.getItem("admin_session")
-    if (!session) {
+    const adminSession = localStorage.getItem("admin_session")
+    const authSession = localStorage.getItem("auth_session")
+    
+    // Check if user is authenticated as admin (either via admin_session or auth_session with admin role)
+    let isAdmin = false
+    if (adminSession) {
+      isAdmin = true
+    } else if (authSession) {
+      try {
+        const session = JSON.parse(authSession)
+        if (session.role === "admin") {
+          isAdmin = true
+        }
+      } catch (e) {
+        // Invalid session JSON
+      }
+    }
+    
+    if (!isAdmin) {
       router.push("/admin/login")
     } else {
       setIsAuthenticated(true)
@@ -24,7 +41,8 @@ export default function AdminDashboardPage() {
 
   const handleLogout = () => {
     localStorage.removeItem("admin_session")
-    router.push("/admin/login")
+    localStorage.removeItem("auth_session")
+    router.push("/")
   }
 
   if (!isAuthenticated) {
