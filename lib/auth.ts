@@ -29,6 +29,28 @@ export const mockUsers: Record<string, { password: string; user: User }> = {
       role: "user",
     },
   },
+  founder1: {
+    password: "FounderPass123!",
+    user: {
+      user_id: "founder001",
+      first_name: "Alice",
+      last_name: "Founder",
+      nick_name: "AliceF",
+      email: "founder@example.com",
+      role: "founder",
+    },
+  },
+  admin1: {
+    password: "AdminPass123!",
+    user: {
+      user_id: "admin_001",
+      first_name: "Super",
+      last_name: "Admin",
+      nick_name: "Admin",
+      email: "admin@fundhub.com",
+      role: "admin",
+    },
+  },
 }
 
 export function generateMockToken(userId: string): string {

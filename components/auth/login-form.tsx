@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Mail, Lock, Loader2 } from "lucide-react"
+import { mockUsers, generateMockToken } from "@/lib/auth"
 
 export function LoginForm() {
   const router = useRouter()
@@ -24,26 +25,31 @@ export function LoginForm() {
 
     try {
       // Mock login - in production, call your backend API
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email, password }),
-      // });
+      await new Promise((resolve) => setTimeout(resolve, 800))
 
-      // Mock success after 1 second delay
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      // Find user by email in mockUsers
+      const found = Object.values(mockUsers).find((entry) => entry.user.email === email)
 
-      if (email === "john.doe@example.com" && password === "StrongPassword123!") {
-        // Store session in localStorage (mock)
-        const mockSession = {
-          user_id: "johndoe",
-          email: "john.doe@example.com",
-          nick_name: "Johnny",
-          role: "user",
-          token: "eyJhbGc...[mock-jwt-token]...I8F",
+      if (found && found.password === password) {
+        const sess = {
+          user_id: found.user.user_id,
+          email: found.user.email,
+          nick_name: found.user.nick_name,
+          role: found.user.role,
+          token: generateMockToken(found.user.user_id),
         }
-        localStorage.setItem("auth_session", JSON.stringify(mockSession))
-        router.push("/dashboard")
+        localStorage.setItem("auth_session", JSON.stringify(sess))
+
+        // Redirect depending on role
+        if (sess.role === "founder") {
+          router.push("/founder/dashboard")
+        } else if (sess.role === "user") {
+          router.push("/dashboard")
+        } else if (sess.role === "admin") {
+          router.push("/admin/dashboard")
+        } else {
+          router.push("/")
+        }
       } else {
         setError("Email hoặc mật khẩu không chính xác")
       }
@@ -117,7 +123,10 @@ export function LoginForm() {
 
       {/* Demo Credentials Hint */}
       <Card className="bg-muted/30 p-3 border-none">
-        <p className="text-xs text-muted-foreground text-center">Demo: john.doe@example.com / StrongPassword123!</p>
+        <p className="text-xs text-muted-foreground text-center">Demo users:</p>
+        <p className="text-xs text-muted-foreground text-center">User: john.doe@example.com / StrongPassword123!</p>
+        <p className="text-xs text-muted-foreground text-center">Founder: founder@example.com / FounderPass123!</p>
+        <p className="text-xs text-muted-foreground text-center">Admin: admin@fundhub.com / AdminPass123!</p>
       </Card>
     </form>
   )
