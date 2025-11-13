@@ -15,8 +15,22 @@ export default function ReviewProjectPage({ params }) {
   const [adminNote, setAdminNote] = useState("")
 
   useEffect(() => {
-    const session = localStorage.getItem("admin_session")
-    if (!session) {
+    const adminSession = localStorage.getItem("admin_session")
+    const authSession = localStorage.getItem("auth_session")
+
+    let isAdmin = false
+    if (adminSession) {
+      isAdmin = true
+    } else if (authSession) {
+      try {
+        const s = JSON.parse(authSession)
+        if (s?.role === "admin") isAdmin = true
+      } catch (e) {
+        // invalid json
+      }
+    }
+
+    if (!isAdmin) {
       router.push("/admin/login")
     } else {
       setIsAuthenticated(true)

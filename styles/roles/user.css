@@ -1,0 +1,54 @@
+/* Role: user
+   Designers/editors: chỉ thay đổi các giá trị CSS variables bên dưới (màu, bóng, transition...)
+   - Giữ nguyên tên biến (ví dụ: --primary, --background)
+   - Không thay đổi selectors (.role-user) vì layout sẽ thêm class này lên <html>
+*/
+
+.role-user {
+  /* Background / text */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Primary: Green */
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+
+  /* Secondary: Teal */
+  --secondary: #0891b2;
+  --secondary-foreground: #0f172a;
+
+  /* Muted: Light grays */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  /* Accent: Orange */
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2e8f0;
+  --input: #ffffff;
+  --ring: #10b981;
+
+  --chart-1: #059669;
+  --chart-2: #0891b2;
+  --chart-3: #f97316;
+  --chart-4: #06b6d4;
+  --chart-5: #3b82f6;
+
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0891b2;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #10b981;
+}

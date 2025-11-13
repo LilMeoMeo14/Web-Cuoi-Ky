@@ -1,0 +1,52 @@
+/* Role: founder
+   Designers/editors: chỉ thay đổi giá trị biến ở đây để thay giao diện cho founder
+*/
+
+.role-founder {
+  /* Background / text */
+  --background: #fff7fe;
+  --foreground: #221c35;
+  --card: #fffaf9;
+  --card-foreground: #221c35;
+  --popover: #fffaf9;
+  --popover-foreground: #221c35;
+
+  /* Primary: Purple */
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+
+  /* Secondary: Pink */
+  --secondary: #db2777;
+  --secondary-foreground: #ffffff;
+
+  /* Muted: Light purples */
+  --muted: #f5f3ff;
+  --muted-foreground: #9878bd;
+
+  /* Accent: Pink */
+  --accent: #fb7185;
+  --accent-foreground: #fff7fe;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #f0e6ff;
+  --input: #fff7fe;
+  --ring: #a855f7;
+
+  --chart-1: #7c3aed;
+  --chart-2: #db2777;
+  --chart-3: #fb7185;
+  --chart-4: #a855f7;
+  --chart-5: #ec4899;
+
+  --sidebar: #fbf5ff;
+  --sidebar-foreground: #221c35;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #db2777;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #f0e6ff;
+  --sidebar-ring: #a855f7;
+}

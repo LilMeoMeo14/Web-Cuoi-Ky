@@ -1,0 +1,52 @@
+/* Role: admin
+   Designers/editors: chỉ thay đổi giá trị biến ở đây để thay giao diện cho admin
+*/
+
+.role-admin {
+  /* Background / text */
+  --background: #0b1220;
+  --foreground: #e6eef8;
+  --card: #1a2a3a;
+  --card-foreground: #e6eef8;
+  --popover: #1a2a3a;
+  --popover-foreground: #e6eef8;
+
+  /* Primary: Blue */
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+
+  /* Secondary: Cyan */
+  --secondary: #06b6d4;
+  --secondary-foreground: #0b1220;
+
+  /* Muted: Dark grays */
+  --muted: #2d3a4a;
+  --muted-foreground: #94a3b8;
+
+  /* Accent: Cyan */
+  --accent: #06b6d4;
+  --accent-foreground: #0b1220;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #0b1220;
+
+  --border: #2d3a4a;
+  --input: #1a2a3a;
+  --ring: #3b82f6;
+
+  --chart-1: #2563eb;
+  --chart-2: #06b6d4;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
+
+  --sidebar: #071029;
+  --sidebar-foreground: #e6eef8;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #06b6d4;
+  --sidebar-accent-foreground: #071029;
+  --sidebar-border: #1a2a3a;
+  --sidebar-ring: #3b82f6;
+}

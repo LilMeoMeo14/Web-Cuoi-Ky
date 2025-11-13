@@ -1,54 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Role-specific variable overrides (import the scaffolds below).
+   Designers can edit files in `styles/roles/*.css` to change colors/effects per role.
+*/
+@import "../styles/roles/default.css";
+@import "../styles/roles/user.css";
+@import "../styles/roles/admin.css";
+@import "../styles/roles/founder.css";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme for crowdfunding platform - modern teal/emerald with warm accents */
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
-
-  /* Primary: Emerald green for trust and growth */
-  --primary: oklch(0.45 0.15 150);
-  --primary-foreground: oklch(0.98 0 0);
-
-  /* Secondary: Teal accent */
-  --secondary: oklch(0.65 0.12 180);
-  --secondary-foreground: oklch(0.15 0 0);
-
-  /* Muted: Light grays */
-  --muted: oklch(0.92 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-
-  /* Accent: Warm orange for CTAs */
-  --accent: oklch(0.65 0.18 45);
-  --accent-foreground: oklch(1 0 0);
-
-  /* Destructive: Red for warnings */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0 0);
-
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.98 0 0);
-  --ring: oklch(0.45 0.15 150);
-  --chart-1: oklch(0.45 0.15 150);
-  --chart-2: oklch(0.65 0.12 180);
-  --chart-3: oklch(0.65 0.18 45);
-  --chart-4: oklch(0.55 0.12 120);
-  --chart-5: oklch(0.75 0.1 200);
+  /* Fallback values only - actual colors defined in .role-* selectors in styles/roles/*.css */
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.45 0.15 150);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.65 0.12 180);
-  --sidebar-accent-foreground: oklch(0.15 0 0);
-  --sidebar-border: oklch(0.92 0 0);
-  --sidebar-ring: oklch(0.45 0.15 150);
 }
 
 .dark {

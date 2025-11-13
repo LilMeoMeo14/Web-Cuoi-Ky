@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { LogOut, Bell, User, Settings } from "lucide-react"
 import { useState } from "react"
+import { clearUserRole } from "@/lib/roleClient"
 
 export function DashboardHeader() {
   const router = useRouter()
@@ -12,6 +13,8 @@ export function DashboardHeader() {
 
   const handleLogout = () => {
     localStorage.removeItem("auth_session")
+    // reset UI theme to default
+    clearUserRole()
     router.push("/")
   }
 

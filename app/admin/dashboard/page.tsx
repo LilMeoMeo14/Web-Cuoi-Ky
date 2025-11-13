@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Footer } from "@/components/layout/footer"
+import { clearUserRole } from "@/lib/roleClient"
 import { LogOut, BarChart3, Users, FileCheck, AlertCircle, TrendingUp, DollarSign, Briefcase } from "lucide-react"
 
 export default function AdminDashboardPage() {
@@ -42,6 +43,8 @@ export default function AdminDashboardPage() {
   const handleLogout = () => {
     localStorage.removeItem("admin_session")
     localStorage.removeItem("auth_session")
+    // reset role to default theme
+    clearUserRole()
     router.push("/")
   }
 

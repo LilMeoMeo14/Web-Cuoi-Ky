@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Mail, Lock, Loader2 } from "lucide-react"
 import { mockUsers, generateMockToken } from "@/lib/auth"
+import { setUserRole } from "@/lib/roleClient"
 
 export function LoginForm() {
   const router = useRouter()
@@ -39,6 +40,9 @@ export function LoginForm() {
           token: generateMockToken(found.user.user_id),
         }
         localStorage.setItem("auth_session", JSON.stringify(sess))
+        
+        // Set role-based theme
+        setUserRole(sess.role as "user" | "admin" | "founder")
 
         // Redirect depending on role
         if (sess.role === "founder") {

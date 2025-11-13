@@ -1,0 +1,41 @@
+/* Default role/theme applied when no user is logged in */
+.role-default {
+  --background: #f8fafc; /* light gray background */
+  --foreground: #0f172a; /* dark text */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --primary: #0ea5a4; /* teal */
+  --primary-foreground: #ffffff;
+
+  --secondary: #7c3aed;
+  --secondary-foreground: #ffffff;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f59e0b;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e6e6e6;
+  --input: #ffffff;
+  --ring: #14b8a6;
+
+  --chart-1: #0ea5a4;
+  --chart-2: #7c3aed;
+  --chart-3: #f59e0b;
+  --chart-4: #06b6d4;
+  --chart-5: #3b82f6;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0ea5a4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #7c3aed;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e6e6e6;
+  --sidebar-ring: #14b8a6;
+}
