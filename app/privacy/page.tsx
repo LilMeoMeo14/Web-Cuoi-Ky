@@ -47,7 +47,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-foreground mb-3">5. Liên hệ</h2>
               <p className="text-muted-foreground">
                 Nếu bạn có câu hỏi về chính sách bảo mật của chúng tôi, vui lòng liên hệ với chúng tôi tại
-                privacy@fundhub.com
+                privacy@trefund.com
               </p>
             </Card>
           </div>

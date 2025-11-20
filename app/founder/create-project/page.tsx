@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { ProtectedLayout } from "@/components/auth/protected-layout"
-import { DashboardHeader } from "@/components/layout/dashboard-header"
-import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { ArrowLeft, Loader2 } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { ProtectedLayout } from "@/components/auth/protected-layout";
+import { DashboardHeader } from "@/components/layout/dashboard-header";
+import { Footer } from "@/components/layout/footer";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ArrowLeft, Loader2 } from "lucide-react";
 
 export default function CreateProjectPage() {
-  const router = useRouter()
-  const [step, setStep] = useState(1)
-  const [loading, setLoading] = useState(false)
+  const router = useRouter();
+  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     category: "Công nghệ",
@@ -25,34 +25,47 @@ export default function CreateProjectPage() {
     targetAmount: 50000,
     deadline: "",
     videoUrl: "",
-  })
+  });
 
-  const categories = ["Nông nghiệp", "Điện ảnh", "Y tế", "Công nghệ", "Giáo dục", "Khác"]
+  const categories = [
+    "Nông nghiệp",
+    "Điện ảnh",
+    "Y tế",
+    "Công nghệ",
+    "Giáo dục",
+    "Khác",
+  ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: name === "targetAmount" ? Number(value) : value,
-    }))
-  }
+    }));
+  };
 
   const validateStep = () => {
     if (step === 1) {
-      return formData.title && formData.category && formData.shortDescription
+      return formData.title && formData.category && formData.shortDescription;
     }
     if (step === 2) {
-      return formData.description && formData.targetAmount > 0 && formData.deadline
+      return (
+        formData.description && formData.targetAmount > 0 && formData.deadline
+      );
     }
-    return true
-  }
+    return true;
+  };
 
   const handleSubmit = async () => {
-    setLoading(true)
+    setLoading(true);
 
     try {
       // Mock project creation
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // In production, send to backend API
       // const response = await fetch('/api/projects', {
@@ -60,13 +73,13 @@ export default function CreateProjectPage() {
       //   body: JSON.stringify(formData),
       // });
 
-      router.push("/founder/dashboard?status=created")
+      router.push("/founder/dashboard?status=created");
     } catch (error) {
-      console.error("Error creating project:", error)
+      console.error("Error creating project:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <ProtectedLayout>
@@ -76,23 +89,32 @@ export default function CreateProjectPage() {
         <main className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             {/* Header */}
-            <Link href="/founder/dashboard" className="flex items-center gap-2 text-primary hover:underline mb-8">
+            <Link
+              href="/founder/dashboard"
+              className="flex items-center gap-2 text-primary hover:underline mb-8"
+            >
               <ArrowLeft size={20} />
               Quay lại
             </Link>
 
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-foreground">Tạo dự án mới</h1>
+              <h1 className="text-3xl font-bold text-foreground">
+                Tạo dự án mới
+              </h1>
               <p className="mt-2 text-muted-foreground">Bước {step} của 2</p>
             </div>
 
             <Card className="p-8">
               {step === 1 ? (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-foreground">Thông tin cơ bản</h2>
+                  <h2 className="text-xl font-semibold text-foreground">
+                    Thông tin cơ bản
+                  </h2>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Tên dự án *</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Tên dự án *
+                    </label>
                     <Input
                       name="title"
                       value={formData.title}
@@ -102,7 +124,9 @@ export default function CreateProjectPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Danh mục *</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Danh mục *
+                    </label>
                     <select
                       name="category"
                       value={formData.category}
@@ -118,7 +142,9 @@ export default function CreateProjectPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Mô tả ngắn *</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Mô tả ngắn *
+                    </label>
                     <textarea
                       name="shortDescription"
                       value={formData.shortDescription}
@@ -128,24 +154,39 @@ export default function CreateProjectPage() {
                       rows={3}
                       className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     />
-                    <p className="mt-1 text-xs text-muted-foreground">{formData.shortDescription.length}/160</p>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {formData.shortDescription.length}/160
+                    </p>
                   </div>
 
                   <div className="flex gap-3">
-                    <Button variant="outline" size="lg" className="flex-1 bg-transparent" asChild>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="flex-1 bg-transparent"
+                      asChild
+                    >
                       <Link href="/founder/dashboard">Hủy</Link>
                     </Button>
-                    <Button size="lg" className="flex-1" onClick={() => validateStep() && setStep(2)}>
+                    <Button
+                      size="lg"
+                      className="flex-1"
+                      onClick={() => validateStep() && setStep(2)}
+                    >
                       Tiếp theo
                     </Button>
                   </div>
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-foreground">Chi tiết dự án</h2>
+                  <h2 className="text-xl font-semibold text-foreground">
+                    Chi tiết dự án
+                  </h2>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Mô tả chi tiết *</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Mô tả chi tiết *
+                    </label>
                     <textarea
                       name="description"
                       value={formData.description}
@@ -158,7 +199,9 @@ export default function CreateProjectPage() {
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Mục tiêu gây quỹ (₫) *</label>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Mục tiêu gây quỹ (₫) *
+                      </label>
                       <Input
                         name="targetAmount"
                         type="number"
@@ -170,8 +213,15 @@ export default function CreateProjectPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Hạn chót *</label>
-                      <Input name="deadline" type="date" value={formData.deadline} onChange={handleChange} />
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Hạn chót *
+                      </label>
+                      <Input
+                        name="deadline"
+                        type="date"
+                        value={formData.deadline}
+                        onChange={handleChange}
+                      />
                     </div>
                   </div>
 
@@ -188,11 +238,23 @@ export default function CreateProjectPage() {
                   </div>
 
                   <div className="flex gap-3">
-                    <Button variant="outline" size="lg" className="flex-1 bg-transparent" onClick={() => setStep(1)}>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="flex-1 bg-transparent"
+                      onClick={() => setStep(1)}
+                    >
                       Quay lại
                     </Button>
-                    <Button size="lg" className="flex-1" onClick={handleSubmit} disabled={!validateStep() || loading}>
-                      {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    <Button
+                      size="lg"
+                      className="flex-1"
+                      onClick={handleSubmit}
+                      disabled={!validateStep() || loading}
+                    >
+                      {loading && (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      )}
                       {loading ? "Đang tạo..." : "Tạo dự án"}
                     </Button>
                   </div>
@@ -216,5 +278,5 @@ export default function CreateProjectPage() {
         <Footer />
       </div>
     </ProtectedLayout>
-  )
+  );
 }

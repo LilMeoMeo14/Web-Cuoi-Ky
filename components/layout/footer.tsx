@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -6,8 +6,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
-            <h3 className="text-sm font-semibold text-foreground">FundHub</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Nền tảng gây quỹ cho các startup đổi mới tại Việt Nam</p>
+            <h3 className="text-sm font-semibold text-foreground">FundTre</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Nền tảng gây quỹ cho các Startup đổi mới tại Việt Nam
+            </p>
           </div>
           <div>
             <h4 className="text-sm font-semibold text-foreground">Khám phá</h4>
@@ -71,9 +73,11 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-8">
-          <p className="text-center text-sm text-muted-foreground">© 2025 FundHub. Tất cả quyền được bảo lưu.</p>
+          <p className="text-center text-sm text-muted-foreground">
+            © 2025 FundHub. Tất cả quyền được bảo lưu.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
